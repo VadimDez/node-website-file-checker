@@ -1,6 +1,8 @@
 const https = require('https');
 const chalk = require('chalk');
+var argv = require('yargs').argv;
 
+console.log(args);
 var sites = [];
 var found = [];
 var length = sites.length;
@@ -22,7 +24,7 @@ function siteCallback(i) {
   
   var req = https.request({
     host: sites[i],
-    path: '/.git/HEAD'
+    path: argv.path
   }, function (res) {
     if (res.statusCode === 200) {
       console.log(chalk.green(sites[i]));

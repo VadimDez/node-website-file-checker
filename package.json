@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/VadimDez/node-website-file-checker#readme",
   "dependencies": {
-    "chalk": "^1.1.3"
+    "chalk": "^1.1.3",
+    "yargs": "^6.0.0"
   }
 }
