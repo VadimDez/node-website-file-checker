@@ -1,0 +1,22 @@
+{
+  "name": "node-website-file-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VadimDez/node-website-file-checker.git"
+  },
+  "author": "Vadym Yatsyuk <vadym.yatsyuk@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VadimDez/node-website-file-checker/issues"
+  },
+  "homepage": "https://github.com/VadimDez/node-website-file-checker#readme",
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
+}
