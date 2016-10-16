@@ -1,14 +1,20 @@
 const https = require('https');
 const chalk = require('chalk');
-var argv = require('yargs').argv;
+var argv = require('yargs').argv || [];
+var stdin = process.openStdin();
 
-console.log(args);
 var sites = [];
 var found = [];
 var length = sites.length;
+var activeRequest;
+
+// abort data on "enter"
+stdin.on('data', function () {
+  console.error(chalk.grey('...aborted'));
+  activeRequest.abort();
+});
 
 function siteCallback(i) {
-  console.log(i);
   if (i >= length) {
     console.log(chalk.yellow('Finished!'));
 
@@ -21,7 +27,7 @@ function siteCallback(i) {
     return;
   }
   console.log(chalk.grey('Checking ' + sites[i] + '...'));
-  
+
   var req = https.request({
     host: sites[i],
     path: argv.path
@@ -32,12 +38,12 @@ function siteCallback(i) {
     }
     siteCallback(i + 1);
   });
+  activeRequest = req;
 
   req.on('error', function(e) {
-    console.error(chalk.red(e));
+    console.error(chalk.grey(e));
     siteCallback(i + 1);
   });
-
 
   req.end();
 }
