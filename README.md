@@ -2,6 +2,7 @@
 > check if list of websites has given file
 
 ### Run
+Before run add sites to the list ```sites```.
 
 ```js
 node index.js -path PATH
